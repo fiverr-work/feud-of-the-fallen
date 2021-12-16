@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Header = ({ text, bgText }) => {
+const Header = ({ text, bgText, revers }) => {
   return (
-    <Style text={bgText || text}>
+    <Style text={bgText || text} revers={revers}>
       <h2>{text}</h2>
     </Style>
   );
@@ -12,24 +12,26 @@ const Header = ({ text, bgText }) => {
 export default Header;
 
 const Style = styled.header`
+  position: relative;
+  @supports (-webkit-text-stroke: 1px black) {
+    ::before {
+      content: "${({ text }) => text}";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+      transform: translate(-50%, -55%);
+      font-size: clamp(54px, 15vw, 144px);
+      font-family: "Montserrat Black";
+      -webkit-text-stroke: 1px ${({ revers }) => (revers ? "#333333" : "#dddddd")};
+      -webkit-text-fill-color: ${({ revers }) => (revers ? "#222222" : "#ffffff")};
+    }
+  }
   h2 {
     text-align: center;
     margin-bottom: 100px;
     position: relative;
-    @supports (-webkit-text-stroke: 1px black) {
-      ::after {
-        content: "${({ text }) => text}";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 100%;
-        transform: translate(-50%, -50%);
-        font-size: clamp(54px, 15vw, 144px);
-        -webkit-text-stroke: 1px #dddddd;
-        -webkit-text-fill-color: white;
-        z-index: -1;
-      }
-    }
     @media (max-width: 768px) {
       margin-bottom: 50px;
     }
