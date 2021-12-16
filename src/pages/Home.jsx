@@ -2,11 +2,21 @@ import React from "react";
 
 // layouts
 import Navbar from "../layout/Navbar";
+import Hero from "../layout/Home";
+import About from "../layout/About";
+import Roadmap from "../layout/Roadmap";
+import FAQ from "../layout/FAQ";
+import Footer from "../layout/Footer";
 
 const Home = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      {/* <Hero /> */}
+      <About />
+      <Roadmap />
+      <FAQ />
+      <Footer />
       {/* <section>
         <h1>h1 hello world</h1>
         <h2>h2 hello world</h2>

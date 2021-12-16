@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-// import { ReactComponent as Logo } from "../assets/img/logo/brand.svg";
+import Logo from "../assets/img/logo/brand.png";
 import { ReactComponent as CloseIcon } from "../assets/img/icons/close.svg";
 import { ReactComponent as Menu } from "../assets/img/icons/menu.svg";
 
@@ -19,16 +19,16 @@ const Navbar = () => {
       <div className="container">
         <Brand>
           <Link to="/">
-            {/* <Logo width="" height=""/> */}
-            Joroh
+            <img src={Logo} alt="Feud of the Fallen" />
           </Link>
         </Brand>
         <Links className={menu ? "show" : ""}>
           <CloseIcon className="close" onClick={() => setMenu(false)} />
-          <Link to="/">Link</Link>
-          <Link to="/">Link</Link>
-          <Link to="/">Link</Link>
-          <Link to="/">Link</Link>
+          <a href="#home">Home</a>
+          <a href="#about">About us</a>
+          <Link to="/contact">Contact us</Link>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#faq">FAQs</a>
         </Links>
         <Menu className="menu" onClick={() => setMenu(true)} />
       </div>
