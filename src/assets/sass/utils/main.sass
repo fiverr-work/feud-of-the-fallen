@@ -1,6 +1,10 @@
+html
+    scroll-padding-top: 90px
+    @media (max-width: 768px)
+        scroll-padding-top: 67px
+
 body
-    // color: #222222
-    background-color: #222222
+    color: #222222
 
 a
     &:hover
@@ -9,7 +13,16 @@ a
 button, .btn
     display: inline-block
     background-color: #009432
+    border: none
     padding: 12px 24px
     color: #ffffff
     &:hover
         background-color: #00802b
+    &.secondary
+        background: transparent
+        border: 1px solid
+        padding: 24px 48px
+        font-size: 24px
+        &:hover
+            background: #ffffff
+            color: #222222

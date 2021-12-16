@@ -76,7 +76,7 @@ const Roadmap = () => {
     },
   ];
   return (
-    <Style>
+    <Style id="roadmap">
       <div className="container">
         <Header revers text="Our Roadmap" bgText="Roadmap" />
         <div>
@@ -91,9 +91,10 @@ const Roadmap = () => {
 };
 
 export default Roadmap;
+
 const Style = styled.section`
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 100px;
+  padding-bottom: 90px;
   background-color: #222222;
   * {
     color: #ffffff;
@@ -128,5 +129,9 @@ const Style = styled.section`
         right: 0;
       }
     }
+  }
+  @media (max-width: 768px) {
+    padding-top: 70px;
+    padding-bottom: 80px;
   }
 `;

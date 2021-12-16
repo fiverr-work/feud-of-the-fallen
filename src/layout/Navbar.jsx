@@ -16,7 +16,7 @@ const Navbar = () => {
         </Brand>
         <Links className={menu ? "show" : ""}>
           <CloseIcon className="close" onClick={() => setMenu(false)} />
-          <a href="#home" className="active">
+          <a href="#hero" className="active">
             Home
           </a>
           <a href="#about" onClick={() => setMenu(false)}>
@@ -57,6 +57,9 @@ const Style = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .menu {
+    cursor: pointer;
   }
   @media (min-width: 768px) {
     .menu {
@@ -99,6 +102,7 @@ const Links = styled.div`
   }
   .close {
     display: none;
+    cursor: pointer;
   }
   @media (max-width: 768px) {
     .close {

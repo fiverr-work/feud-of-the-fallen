@@ -6,7 +6,7 @@ import Img from "../assets/img/dullahan.png";
 
 const About = () => {
   return (
-    <Style className="container">
+    <Style className="container" id="about">
       <Header text="About Us" />
       <div>
         <div>

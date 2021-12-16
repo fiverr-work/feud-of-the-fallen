@@ -2,7 +2,7 @@ import React from "react";
 
 // layouts
 import Navbar from "../layout/Navbar";
-import Hero from "../layout/Home";
+import Hero from "../layout/Hero";
 import About from "../layout/About";
 import Roadmap from "../layout/Roadmap";
 import FAQ from "../layout/FAQ";
@@ -12,11 +12,11 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      {/* <Hero /> */}
-      {/* <About /> */}
-      {/* <Roadmap /> */}
-      {/* <FAQ /> */}
-      {/* <Footer /> */}
+      <Hero />
+      <About />
+      <Roadmap />
+      <FAQ />
+      <Footer />
     </>
   );
 };
