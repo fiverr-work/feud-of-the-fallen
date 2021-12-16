@@ -29,7 +29,7 @@ const Navbar = () => {
           <a href="#faq" onClick={() => setMenu(false)}>
             FAQs
           </a>
-          <a href="#" className="btn">
+          <a href="#hero" className="btn">
             Lunch Discord
           </a>
         </Links>

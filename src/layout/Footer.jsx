@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Logo from "../assets/img/logo/brand.png";
-import Img from "../assets/img/dullahan.png";
 import { ReactComponent as FacebookIcon } from "../assets/img/icons/facebook.svg";
 import { ReactComponent as TwitterIcon } from "../assets/img/icons/twitter.svg";
 import { ReactComponent as LinkedinIcon } from "../assets/img/icons/linkedin.svg";
@@ -12,20 +11,20 @@ import { ReactComponent as InstagramIcon } from "../assets/img/icons/instagram.s
 const Footer = () => {
   const social = [
     {
-      link: ``,
-      icon: FacebookIcon,
+      link: `https://www.facebook.com`,
+      Icon: FacebookIcon,
     },
     {
-      link: ``,
-      icon: TwitterIcon,
+      link: `https://www.twitter.com`,
+      Icon: TwitterIcon,
     },
     {
-      link: ``,
-      icon: LinkedinIcon,
+      link: `https://www.linkedin.com`,
+      Icon: LinkedinIcon,
     },
     {
-      link: ``,
-      icon: InstagramIcon,
+      link: `https://www.instagram.com`,
+      Icon: InstagramIcon,
     },
   ];
   return (
@@ -36,7 +35,7 @@ const Footer = () => {
           <div>
             {social.map((Item, index) => (
               <a href={Item.link} key={index}>
-                <Item.icon />
+                <Item.Icon />
               </a>
             ))}
           </div>
@@ -44,10 +43,10 @@ const Footer = () => {
         <Prefooter>
           <p className="small">Copyright © 2021 feud of the fallen. All rights reserved</p>
           <div>
-            <a href="#">About us</a>
+            <a href="#about">About us</a>
             <Link to="/contact">Contact Us</Link>
-            <a href="#">Roadmap</a>
-            <a href="#">FAQs</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#faq">FAQs</a>
           </div>
         </Prefooter>
       </div>
