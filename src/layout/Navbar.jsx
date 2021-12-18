@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Scrollspy from "react-scrollspy";
 
 import Logo from "../assets/img/logo/brand.png";
 import { ReactComponent as CloseIcon } from "../assets/img/icons/close.svg";
@@ -16,22 +17,22 @@ const Navbar = () => {
         </Brand>
         <Links className={menu ? "show" : ""}>
           <CloseIcon className="close" onClick={() => setMenu(false)} />
-          <a href="#hero" className="active">
-            Home
-          </a>
-          <a href="#about" onClick={() => setMenu(false)}>
-            About us
-          </a>
-          <Link to="/contact">Contact us</Link>
-          <a href="#roadmap" onClick={() => setMenu(false)}>
-            Roadmap
-          </a>
-          <a href="#faq" onClick={() => setMenu(false)}>
-            FAQs
-          </a>
-          <a href="#hero" className="btn">
-            Lunch Discord
-          </a>
+          <Scrollspy items={["hero", "about", "", "roadmap", "faq"]} currentClassName="active">
+            <a href="#hero">Home</a>
+            <a href="#about" onClick={() => setMenu(false)}>
+              About us
+            </a>
+            <Link to="/contact">Contact us</Link>
+            <a href="#roadmap" onClick={() => setMenu(false)}>
+              Roadmap
+            </a>
+            <a href="#faq" onClick={() => setMenu(false)}>
+              FAQs
+            </a>
+            <a href="#hero" className="btn">
+              Lunch Discord
+            </a>
+          </Scrollspy>
         </Links>
         <Menu className="menu" onClick={() => setMenu(true)} />
       </div>
@@ -104,6 +105,15 @@ const Links = styled.div`
     display: none;
     cursor: pointer;
   }
+  ul {
+    flex: 1;
+    display: flex;
+    padding-left: 0;
+    align-items: center;
+    .btn {
+      margin-left: auto;
+    }
+  }
   @media (max-width: 768px) {
     .close {
       display: block;
@@ -119,6 +129,11 @@ const Links = styled.div`
     z-index: 12;
     flex-direction: column;
     justify-content: center;
+    ul {
+      flex-direction: column;
+      justify-content: center;
+      flex: initial;
+    }
     a {
       margin: 15px auto;
     }

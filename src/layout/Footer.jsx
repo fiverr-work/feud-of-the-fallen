@@ -29,7 +29,7 @@ const Footer = () => {
   ];
   return (
     <Style>
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <Topfooter>
           <img src={Logo} alt="Feud of the Fallen" />
           <div>

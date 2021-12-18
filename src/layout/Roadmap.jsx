@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import Header from "../components/Header";
 
-const Col = ({ date, text }) => (
-  <ColStyle>
+const Col = ({ date, text, ...rest }) => (
+  <ColStyle {...rest}>
     <h6>{date}</h6>
     <span></span>
     <span></span>
@@ -18,6 +18,7 @@ const ColStyle = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-width: 251px;
 
   span {
     :nth-of-type(1) {
@@ -41,13 +42,6 @@ const ColStyle = styled.div`
         outline: 1px solid #009432;
         outline-offset: 8px;
       }
-    }
-  }
-  @media (max-width: 768px) {
-    display: none;
-    :first-of-type,
-    :last-of-type {
-      display: flex;
     }
   }
 `;
@@ -77,7 +71,7 @@ const Roadmap = () => {
   ];
   return (
     <Style id="roadmap">
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <Header revers text="Our Roadmap" bgText="Roadmap" />
         <div>
           <hr />
@@ -103,7 +97,12 @@ const Style = styled.section`
     display: flex;
     justify-content: space-between;
     position: relative;
-
+    overflow: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    ::-webkit-scrollbar {
+      display: none;
+    }
     hr {
       position: absolute;
       left: 0;

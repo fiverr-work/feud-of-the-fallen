@@ -33,7 +33,7 @@ const FAQ = () => {
   };
 
   return (
-    <Style className="container" id="faq">
+    <Style className="container" id="faq" data-aos="fade-up">
       <Header text="Frequently asked questions" bgText="FAQ" />
       <Faq data={data} />
     </Style>

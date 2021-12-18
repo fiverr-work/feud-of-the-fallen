@@ -8,7 +8,7 @@ const About = () => {
   return (
     <Style className="container" id="about">
       <Header text="About Us" />
-      <div>
+      <div data-aos="fade-up">
         <div>
           <img src={Img} alt="dullahan" />
         </div>

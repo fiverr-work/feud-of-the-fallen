@@ -1,26 +1,69 @@
 import React from "react";
 import styled from "styled-components";
-import Slider from "react-slick";
 
 import { ReactComponent as ScrollIcon } from "../assets/img/icons/scroll.svg";
-import { ReactComponent as ArrowPrev } from "../assets/img/icons/arrow-right.svg";
-import { ReactComponent as ArrowNext } from "../assets/img/icons/arrow-left.svg";
 import Cards from "../assets/img/cards.png";
 
-const SliderItem = () => (
-  <SliderStyle>
-    <div>
-      <span>02 / 04</span>
-      <h1>FEUD OF THE FALLEN</h1>
-      <button className="btn secondary">Play Now</button>
-    </div>
-    <div>
-      <img src={Cards} alt="" />
-    </div>
-  </SliderStyle>
-);
+const Hero = () => {
+  return (
+    <Style id="hero">
+      <div className="container">
+        <Content data-aos="fade-up">
+          <div>
+            <span>02 / 04</span>
+            <h1>FEUD OF THE FALLEN</h1>
+            <button className="btn secondary">Play Now</button>
+          </div>
+          <div>
+            <img src={Cards} alt="" />
+          </div>
+        </Content>
+      </div>
+      <a href="#about">
+        <ScrollIcon />
+      </a>
+    </Style>
+  );
+};
 
-const SliderStyle = styled.div`
+export default Hero;
+
+const Style = styled.header`
+  min-height: 100vh;
+  background-color: #222222;
+  position: relative;
+  display: flex;
+  align-items: center;
+  * {
+    color: #ffffff;
+  }
+  > a {
+    position: absolute;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: bounce;
+    animation-timing-function: ease-in;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  @keyframes bounce {
+    0% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 10px);
+    }
+    100% {
+      transform: translate(-50%, 0);
+    }
+  }
+`;
+
+const Content = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
@@ -47,6 +90,9 @@ const SliderStyle = styled.div`
         height: 1px;
         background-color: #ffffff;
       }
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
     :first-child {
       flex: 0.6;
@@ -58,152 +104,5 @@ const SliderStyle = styled.div`
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     text-align: center;
-  }
-`;
-
-const Hero = () => {
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: (
-      <button>
-        <ArrowNext />
-      </button>
-    ),
-    prevArrow: (
-      <button>
-        <ArrowPrev />
-      </button>
-    ),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          vertical: true,
-          verticalSwiping: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          vertical: false,
-          verticalSwiping: false,
-        },
-      },
-    ],
-  };
-  return (
-    <Style id="hero">
-      <div className="container">
-        <Slider {...settings}>
-          <SliderItem />
-          <SliderItem />
-          <SliderItem />
-        </Slider>
-      </div>
-      <ScrollIcon />
-    </Style>
-  );
-};
-
-export default Hero;
-
-const Style = styled.header`
-  min-height: 100vh;
-  background-color: #222222;
-  position: relative;
-  display: flex;
-  align-items: center;
-  * {
-    color: #ffffff;
-  }
-  > svg {
-    pointer-events: none;
-    position: absolute;
-    bottom: 55px;
-    left: 50%;
-    transform: translateX(-50%);
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-  .container,
-  .slick-slider {
-    min-height: 100vh;
-  }
-  .slick-slider {
-    display: flex;
-    align-items: center;
-  }
-  .slick-dots {
-    bottom: 37px;
-    li {
-      opacity: 1;
-      background: #333333;
-      width: auto;
-      height: auto;
-      button {
-        height: 4px;
-        width: 16px;
-        padding: 0;
-        :before {
-          content: "";
-          width: 100%;
-          height: 100%;
-        }
-      }
-      &.slick-active button:before {
-        background: #009432;
-      }
-    }
-  }
-  .slick-next {
-    right: 0;
-  }
-  .slick-prev {
-    left: 0;
-  }
-  .slick-arrow {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    background: #009432;
-    height: 34px;
-    width: 34px;
-    z-index: 2;
-    @media (max-width: 768px) {
-      svg {
-        transform: rotate(-90deg);
-      }
-    }
-    ::before {
-      display: none;
-    }
-    &.slick-disabled {
-      background: #333333;
-      cursor: not-allowed;
-    }
-  }
-  @media (min-width: 768px) {
-    .slick-arrow {
-      top: auto;
-      left: 0;
-    }
-    .slick-next {
-      bottom: 50px;
-    }
-    .slick-prev {
-      bottom: 110px;
-    }
-    .slick-dots {
-      right: -20px;
-      top: 50%;
-      bottom: auto;
-      width: auto;
-      transform: rotate(90deg);
-    }
   }
 `;
